@@ -4,8 +4,8 @@ config_file_version = 2
 services = nss, pam
 
 [domain/semace.local]
-ad_domain = semace.local
-krb5_realm = SEMACE.LOCAL
+ad_domain = {{ domain }}
+krb5_realm = {{ domain }}
 realmd_tags = manages-system joined-with-samba 
 cache_credentials = True
 id_provider = ad
