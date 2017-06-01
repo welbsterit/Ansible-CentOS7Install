@@ -1,0 +1,7 @@
+---
+
+- name: restart sssd
+  command: service sssd restart
+
+- name: restart sshd
+  command: service sshd restart

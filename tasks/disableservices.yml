@@ -1,0 +1,17 @@
+---
+
+- name: Stop and disable firewalld.
+  service:       
+    name: firewalld
+    state: stopped
+    enabled: False
+
+- name: Configure selinux for disabled
+  template: src=selinux.j2 dest=/etc/sysconfig/selinux
+            owner=root group=root mode=644
+
+- name: stop postfix
+  service:
+    name: postfix
+    state: stopped
+    enabled: False 

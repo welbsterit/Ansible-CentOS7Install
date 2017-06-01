@@ -1,0 +1,9 @@
+domain: yourdomain
+adminpass: yourpassword
+domainuser: Administrator
+grpinfra: yourgroup
+grpdev: yourgroup
+port_ssh: 1965
+admfw: 10.24.0.2,10.24.0.3,10.24.0.4
+admdev: 10.24.0.24,10.24.0.21
+allowports: 1965,80

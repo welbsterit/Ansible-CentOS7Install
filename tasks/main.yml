@@ -1,0 +1,7 @@
+---
+- include: update.yml
+- include: packets.yml
+- include: disableservices.yml
+#- include: authsamba4.yml
+- include: security.yml
+#- include: iptables.yml

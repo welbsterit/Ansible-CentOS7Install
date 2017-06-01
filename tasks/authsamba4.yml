@@ -1,0 +1,32 @@
+---
+
+- name: install samba
+  yum: name={{ item }} state=present
+  with_items:
+    - samba
+    - samba-client
+    - samba-common
+    - realmd
+    - oddjob
+    - sssd
+    - oddjob-mkhomedir
+    - adcli
+    - samba-common-tools
+    - python-pip
+
+- name: install pexpect using pip
+  shell: /bin/bash -c "pip install pexpect"
+
+- name: discovery domain
+  shell: realm discover {{ domain }}
+
+- name: join system to domain
+  expect:
+    command: /bin/bash -c "/usr/sbin/realm join {{ domain }} --user={{ domainuser }}"
+    responses:
+      Senha para Administrator: "{{ adminpass }}"
+
+- name: modify /etc/sssd/sssd.conf
+  template: src=sssd.conf.j2 dest=/etc/sssd/sssd.conf
+  notify:
+   - restart sssd

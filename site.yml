@@ -1,0 +1,8 @@
+---
+# Default install CentOS7 Minimal
+
+- hosts: testes
+
+  roles:
+    - installcentos7
+
